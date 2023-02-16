@@ -1,5 +1,5 @@
 #!/bin/bash
 for i in AHMET 	ALEJANDRO 	DANIEL 	DAVID 	DIEGO 	EFRAIN 	JHONATAN 	JOEL 	JUAN 	LEONEL 	MARIANA 	NICOLAS 	OSCAR 	RUBEN 	SEBASTIAN 
 do
-  git add $i
+  cp -r ej4 $i
 done
