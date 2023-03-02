@@ -16,10 +16,15 @@ using namespace std;
 //  los métodos definidos en el archivo complejo.h
 
 int main(int argc, char** argv){
-  cout << argc << endl;
+//  cout << argc << endl;
+  if( argc != 6 ){
+    cout << "Debe pasar [-a, -i, -c, -r] y cuatro números";
+    return 1;
+  }
 
-  Complejo a, b, tercero;
+  Complejo a, b( a ), tercero(8.9, 9.8);
   double dist;
+
   a.setRe( atof( argv[2] ) );
   a.setIm( atof( argv[3] ) );
   b.setRe( atof( argv[4] ) );

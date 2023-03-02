@@ -33,6 +33,23 @@ ostream& operator<< (ostream& out, Complejo &a){
 }
   
 
+Complejo::Complejo()
+{
+    re = im = 0.;
+}
+
+Complejo::Complejo(Complejo &a)
+{
+  re = a.re;
+  im = a.im;
+}
+
+Complejo::Complejo(double r, double i)
+{
+  re = r;
+  im = i;
+}
+
 double   Complejo::getRe(){
   return re;
 }
