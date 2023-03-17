@@ -22,9 +22,10 @@ int main(int argc, char** argv){
   int      lineas = 0;
   string   texto;
   ifstream input( argv[1] );
+
   while( getline( input, texto) ){
     lineas++;
-    cout << texto << endl;
+//    cout << texto << endl;
   }
   
   input.close();
@@ -34,6 +35,7 @@ int main(int argc, char** argv){
 
 
   input.open( argv[1] );  // Se abre nuevamente el archivo para leer los datos.
+
   size_t pos=0;
   string a, b;
   double r, im;
@@ -43,12 +45,12 @@ int main(int argc, char** argv){
                              // parte real y a parte imaginaria  ej: -3.14 + 2.67j
 
     pos = texto.find_first_not_of(".,0123456789", 1 );
-    cout << "posición: " << pos << endl;  
+//    cout << "posición: " << pos << endl;  
     a = texto.substr( 0, pos);
     a.erase( remove( a.begin(), a.end(), ' '), a.end() );
     b =  texto.substr( pos, texto.length() - pos - 1);
     b.erase( remove( b.begin(), b.end(), ' ' ), b.end() );
-    cout << "a: " << a << ", b: " << b << endl;
+//    cout << "a: " << a << ", b: " << b << endl;
     r = stod( a.c_str());
     //cout << "real, " ;
     im = stod( b.c_str() );
@@ -66,8 +68,6 @@ int main(int argc, char** argv){
     again = false;
       
     for( int i = 0; i < lineas; i++){
-
-
       if ( arg( vec[i] ) > arg( vec[i+1] ) ){
         aux = vec[i];
         vec[i] = vec[i+1];
@@ -92,7 +92,7 @@ int main(int argc, char** argv){
 
   for(int  i = 0; i < lineas; i++ ){
     output << vec[i].real() << ( vec[i].imag() < 0? " - ": " + " ) << abs( vec[i].imag() ) << "j" << endl;
-    cout << vec[i] << "<" << arg( vec[i] ) << endl;
+//    cout << vec[i] << " < " << arg( vec[i] ) << endl;
   }
   
   output.close();  // Se cierra el archivo de escritura.
