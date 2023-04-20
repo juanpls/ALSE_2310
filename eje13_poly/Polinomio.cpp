@@ -97,6 +97,15 @@ bool Polinomio::redefinir(std::string pol) {
 
 Polinomio Polinomio::operator +(Polinomio &p){
     Polinomio c;
+    c.redefinir( getString() );
+    
+    Termino* temp = p._polCabeza;
+    
+    while( temp != nullptr ){
+        c.nuevoTermino(temp->getC(), temp->getP() );
+        temp = temp->getSiguiente();
+    }
+    c.simplificar();
     return c;
 }
 
@@ -116,6 +125,13 @@ Polinomio Polinomio::operator -(Polinomio &p){
 
 Polinomio Polinomio::operator /(float f){
     Polinomio c;
+    Termino* temp = _polCabeza;
+    
+    while( temp != nullptr ){
+        c.nuevoTermino( f * temp->getC(), temp->getP() );
+        temp = temp->getSiguiente();
+    }
+    
     return c;
 }
 
