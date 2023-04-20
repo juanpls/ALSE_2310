@@ -4,13 +4,13 @@
 #include <sstream>
 
 Polinomio::Polinomio(){
-    _orden = -1;
+    _grado = -1;
     _variable = 'X';
     _polCabeza = NULL;
 }
 
 Polinomio::Polinomio(std::string pol){
-    _orden = -1;
+    _grado = -1;
     _variable = 'X';
     _polCabeza = NULL;
     redefinir( pol );
@@ -18,7 +18,7 @@ Polinomio::Polinomio(std::string pol){
 
 Polinomio::Polinomio(const Polinomio &p){
     if( this != &p ){
-        _orden = p._orden;
+        _grado = p._grado;
         _variable = p._variable;
         _polCabeza = NULL;
 
@@ -89,14 +89,13 @@ bool Polinomio::redefinir(std::string pol) {
         //cout << "coeff: " << coeff << " y power: " << power << endl;
         // Adicionar el término encontrado
         nuevoTermino( coeff, power );
-        _orden = power > _orden ? power : _orden ;
+        _grado = power > _grado ? power : _grado ;
     }
     //std::cout << getString() << endl;
     return true;
 }
 
 Polinomio Polinomio::operator +(Polinomio &p){
-    // Libardo y Juan
     Polinomio c;
     return c;
 }
@@ -116,7 +115,6 @@ Polinomio Polinomio::operator -(Polinomio &p){
 }
 
 Polinomio Polinomio::operator /(float f){
-    //  Andres
     Polinomio c;
     return c;
 }
@@ -137,11 +135,11 @@ bool Polinomio::borrar(){
     }
 
     _polCabeza = NULL;
-    _orden = -1;
+    _grado = -1;
 }
 
-int Polinomio::getOrden(){
-   return _orden;
+int Polinomio::getGrado(){
+   return _grado;
 }
 
 char Polinomio::getVariable(){
@@ -168,15 +166,14 @@ void Polinomio::nuevoTermino(float c, int p){
         //cout << nuevo << " y " << temp->getSiguiente() << endl;
         //nuevo->setSiguiente( NULL );
     }
-    _orden = _orden < p ? p : _orden;
+    _grado = _grado < p ? p : _grado;
 }
 
 void Polinomio::simplificar(){
-  // Anthony y Daniel
+
 }
 
 bool Polinomio::ordenar(){
-  //Leandor y Wilmer
     return true;
 }
 

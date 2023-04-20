@@ -14,12 +14,12 @@ using namespace std;
 
 
 Polinomio::Polinomio() {
-    _orden = -1;
+    _grado = -1;
     _variable = 0;
 }
 
 Polinomio::Polinomio(string pol) {
-    _orden = -1;
+    _grado = -1;
     _variable = 0;
     redefinir( pol );
 }
@@ -153,7 +153,7 @@ ostream& operator << (ostream& stream, Polinomio& p){
  */
 bool Polinomio::borrar() {
     _terminoL.clear();
-    _orden = -1;
+    _grado = -1;
     return true;
 }
 
@@ -208,7 +208,7 @@ bool Polinomio::redefinir(string pol) {
         //cout << "coeff: " << coeff << " y power: " << power << endl;
         // Adicionar el término encontrado
         nuevoTermino( coeff, power );
-        _orden = power > _orden ? power : _orden ;
+        _grado = power > _grado ? power : _grado ;
     }
     //cout << getString() << endl;
     return true;
@@ -230,7 +230,7 @@ string  Polinomio::getString(){
 }
 
 int Polinomio::getOrden() {
-    return _orden;
+    return _grado;
 }
 
 char Polinomio::getVariable() {

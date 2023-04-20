@@ -30,7 +30,7 @@ class Polinomio {
 
     bool    borrar();
     bool    redefinir(string pol);
-    int     getOrden();
+    int     getGrado();
     char    getVariable();
     void    setVariable(char value);
     void    nuevoTermino(float c, int p);
@@ -39,7 +39,7 @@ class Polinomio {
     string  getString();
 
   private:
-    int         _orden;
+    int         _grado;
     char        _variable;
     Termino*    _polCabeza;
 };
