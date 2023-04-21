@@ -201,6 +201,7 @@ void Polinomio::nuevoTermino(float c, int p){
 }
 
 void Polinomio::simplificar(){
+  
 
 }
 
@@ -223,9 +224,4 @@ std::string Polinomio::getString() {
         temp = temp->getSiguiente();
     }
     return stream.str();
-}
-
-bool Polinomio::simplificar(){
-  
-  return true;
 }
