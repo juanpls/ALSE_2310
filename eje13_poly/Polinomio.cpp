@@ -120,6 +120,20 @@ void Polinomio::operator =(Polinomio &p){
 
 Polinomio Polinomio::operator -(Polinomio &p){
     Polinomio c;
+    Termino* temp = _polCabeza;
+    
+    while( temp != nullptr ){
+        c.nuevoTermino(temp->getC(), temp->getP() );
+        temp = temp->getSiguiente();
+    }
+    
+    temp = p._polCabeza;
+    while( temp != nullptr ){
+        c.nuevoTermino(- temp->getC(), temp->getP() );
+        temp = temp->getSiguiente();
+    }
+
+    c.simplificar();
     return c;
 }
 
@@ -128,7 +142,7 @@ Polinomio Polinomio::operator /(float f){
     Termino* temp = _polCabeza;
     
     while( temp != nullptr ){
-        c.nuevoTermino( f * temp->getC(), temp->getP() );
+        c.nuevoTermino( temp->getC() / f , temp->getP() );
         temp = temp->getSiguiente();
     }
     
@@ -152,6 +166,7 @@ bool Polinomio::borrar(){
 
     _polCabeza = NULL;
     _grado = -1;
+    return true;
 }
 
 int Polinomio::getGrado(){
